@@ -166,7 +166,7 @@
 </div>
 
 <script>
-    const URL_PLANILHA = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQlcfMc6yPrGS_vz8uxhizzJqdJop8l8MDoz0ADimr-iUh1wYWbeXKjC8JsJ5AGtjJEDA73-9qFztuN/pub?gid=0&single=true&output=csv";
+    const URL_PLANILHA = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQlcfMc6yPrGS_vz8uxhizzJqdJop8l8MDoz0ADimr-iUh1wYWbeXKjC8JsJ5AGtjJEDA73-9qFztuN/pub?gid=2122898699&single=true&output=csv";
     const dicionarioLinhas = { 
 
 "254A": "254A - Pq. Alvamar",
@@ -312,7 +312,7 @@
         grid.innerHTML = veiculosParaRenderizar.map((v) => {
             const numTabela = todosVeiculosLinha.indexOf(v) + 1;
             const viagens = dadosGlobais.filter(x => x.veiculo === v && x.linha === linha).sort((a,b) => paraMinutos(a.ini, a.trip) - paraMinutos(b.ini, b.trip));
-            return gerarCard(traduzirLinha(linha), `TABELA ${String(numTabela).padStart(2,'0')} | CARRO ${v} | DIA UTIL`, viagens, true);
+            return gerarCard(traduzirLinha(linha), `TABELA ${String(numTabela).padStart(2,'0')} | CARRO ${v} | SÁBADOS`, viagens, true);
         }).join('');
     }
 
@@ -368,7 +368,7 @@
                 const carroTexto = veiculoAtual ? ` | CARRO ${veiculoAtual}` : "";
                 const subTexto = `${tituloAtividade}${infoTabela}${carroTexto}`;
 
-                return gerarCard(`TRIPULANTE: ${t} | DIAS ÚTEIS`, subTexto, g, false);
+                return gerarCard(`TRIPULANTE: ${t} | SÁBADOS`, subTexto, g, false);
             }).join('');
         });
         grid.innerHTML = htmlFinal;
